@@ -98,7 +98,7 @@ export default class Api {
 }
 
 export const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-43",
+  baseUrl: "http://frontend15.nomoredomains.rocks/api/",
   headers: {
     "Content-Type": "application/json",
   },
