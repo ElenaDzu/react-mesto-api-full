@@ -6,6 +6,12 @@ const { login, createUser } = require('../controllers/users');
 const { validateLogin, validateCreateUser } = require('../middlewares/validators');
 const NotFound404 = require('../Errors/NotFound404');
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 router.post('/signin', validateLogin, login);
 
 router.post('/signup', validateCreateUser, createUser);
