@@ -102,5 +102,5 @@ export const api = new Api({
   headers: {
     "Content-Type": "application/json",
   },
-  token: "16d5d399-f287-4ea5-b24b-9feae8ea6a1a",
+  token: "Bearer 16d5d399-f287-4ea5-b24b-9feae8ea6a1a",
 });
