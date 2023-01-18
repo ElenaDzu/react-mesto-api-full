@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
@@ -12,7 +13,12 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
 });
+const corsOptions = {
+  origin: 'http://frontend15.nomoredomains.rocks',
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 app.use(express.json());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(requestLogger);
 app.use(routes);
