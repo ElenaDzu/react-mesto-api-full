@@ -1,4 +1,4 @@
-export const BASE_URL = "http://frontend15.nomoredomains.rocks";
+export const BASE_URL = "https://api.frontend15.nomoredomains.rocks";
 
 const headers = {
   Accept: "application/json",
