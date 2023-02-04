@@ -9,6 +9,7 @@ export default class Api {
   }
 
   _getResult(res) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     if (res.ok) {
       return res.json();
     }
@@ -16,6 +17,7 @@ export default class Api {
   }
 
   getInitialCards() {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = "/cards";
     return fetch(this.baseUrl + url, { headers: this.headers }).then(
       this._getResult
@@ -23,6 +25,7 @@ export default class Api {
   }
 
   getUserInfo() {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = "/users/me";
     return fetch(this.baseUrl + url, { headers: this.headers }).then(
       this._getResult
@@ -30,6 +33,7 @@ export default class Api {
   }
 
   setUserInfo(name, about) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = "/users/me";
     return fetch(this.baseUrl + url, {
       method: "PATCH",
@@ -42,6 +46,7 @@ export default class Api {
   }
 
   postCard(name, link) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = "/cards";
     return fetch(this.baseUrl + url, {
       method: "POST",
@@ -54,6 +59,7 @@ export default class Api {
   }
 
   deleteCard(cardId) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = `/cards/${cardId}`;
     return fetch(this.baseUrl + url, {
       method: "DELETE",
@@ -62,6 +68,7 @@ export default class Api {
   }
 
   likeCard(cardId) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = `/cards/${cardId}/likes`;
     return fetch(this.baseUrl + url, {
       method: "PUT",
@@ -70,6 +77,7 @@ export default class Api {
   }
 
   UnlikeCard(cardId) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = `/cards/${cardId}/likes`;
     return fetch(this.baseUrl + url, {
       method: "DELETE",
@@ -78,6 +86,7 @@ export default class Api {
   }
 
   changeLikeCardStatus(cardId, like) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     if (like) {
       return this.likeCard(cardId);
     } else {
@@ -86,6 +95,7 @@ export default class Api {
   }
 
   setAvatar(avatar) {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     const url = "/users/me/avatar";
     return fetch(this.baseUrl + url, {
       method: "PATCH",
