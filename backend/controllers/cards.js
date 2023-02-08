@@ -6,7 +6,7 @@ const Forbidden403 = require('../Errors/Forbidden403');
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch(() => {
       next(new InternalServerError500('На сервере произошла ошибка'));
     });
