@@ -176,6 +176,7 @@ function App() {
   }, [isLoggedIn]);
 
   function handleCardLike(card) {
+    console.log(currentUser);
     const isLiked = card.likes.some((i) => i === currentUser._id);
 
     api
