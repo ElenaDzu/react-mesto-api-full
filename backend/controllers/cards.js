@@ -15,7 +15,7 @@ module.exports.getCards = (req, res, next) => {
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: req.user._id })
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequest400('Неправильный запрос'));
@@ -35,7 +35,7 @@ module.exports.deleteCard = (req, res, next) => {
       if (card && card.owner.toString() === req.user._id) {
         Card.findByIdAndDelete(card._id.toString(), (err, doc) => {
           if (err) throw new Error(err);
-          res.send({ data: doc });
+          res.send(doc);
         });
         return;
       }
@@ -58,7 +58,7 @@ module.exports.putLike = (req, res, next) => {
   )
     .then((card) => {
       if (card) {
-        res.send({ data: card });
+        res.send(card);
         return;
       }
       next(new NotFound404('Объект не найден'));
@@ -80,7 +80,7 @@ module.exports.deleteLike = (req, res, next) => {
   )
     .then((card) => {
       if (card) {
-        res.send({ data: card });
+        res.send(card);
         return;
       }
       next(new NotFound404('Объект не найден'));
