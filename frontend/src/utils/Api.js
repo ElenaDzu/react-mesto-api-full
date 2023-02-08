@@ -9,7 +9,6 @@ export default class Api {
   }
 
   _getResult(res) {
-    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
     if (res.ok) {
       return res.json();
     }
