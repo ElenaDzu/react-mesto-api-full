@@ -176,16 +176,14 @@ function App() {
   }, [isLoggedIn]);
 
   function handleCardLike(card) {
-    console.log(currentUser);
     const isLiked = card.likes.some((i) => i === currentUser._id);
-
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
           state.map((c) => (c._id === card._id ? newCard : c))
         );
-      })
+      })sudo apt install -y certbot python3-certbot-nginx 
       .catch((err) => {
         console.log(err);
       });
