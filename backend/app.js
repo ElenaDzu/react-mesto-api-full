@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
 });
 const corsOptions = {
-  origin: 'http://frontend15.nomoredomains.rocks',
+  origin: 'https://frontend15.nomoredomains.rocks',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
