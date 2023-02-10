@@ -89,8 +89,8 @@ function App() {
     if (isLoggedIn) {
       api
         .getUserInfo()
-        .then((currentUser) => {
-          setCurrentUser(currentUser);
+        .then((user) => {
+          setCurrentUser(user);
         })
         .catch((err) => {
           console.log(err);
