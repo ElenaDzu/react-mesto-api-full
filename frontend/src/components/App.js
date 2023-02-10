@@ -45,9 +45,10 @@ function App() {
     }
 
     ApiAuth.getContent(jwt)
-      .then(({ email }) => {
-        setUserInfo({ email });
+      .then((user) => {
+        setUserInfo({ email: user.email });
         setIsLoggedIn(true);
+        setCurrentUser(user);
         history.push("/");
       })
       .catch((err) => console.log(err));
