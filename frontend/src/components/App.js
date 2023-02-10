@@ -96,7 +96,7 @@ function App() {
           console.log(err);
         });
     }
-  }, [isLoggedIn]);
+  }, []);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
