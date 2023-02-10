@@ -173,7 +173,7 @@ function App() {
           console.log(err);
         });
     }
-  }, [isLoggedIn]);
+  }, []);
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i === currentUser._id);
