@@ -53,7 +53,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-  //tokenCheck();
 
   const onLogin = (data) => {
     return ApiAuth.authorize(data)
@@ -161,6 +160,7 @@ function App() {
           console.log(err);
         });
     }
+    tokenCheck();
   }, []);
 
   function handleCardLike(card) {
