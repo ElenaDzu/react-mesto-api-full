@@ -61,6 +61,14 @@ function App() {
         localStorage.setItem("jwt", token);
         tokenCheck();
         history.push("/");
+        api
+        .getUserInfo()
+        .then((user) => {
+          setCurrentUser(user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
         return;
       })
       .catch((e) => {
@@ -84,19 +92,6 @@ function App() {
     localStorage.removeItem("jwt");
     history.push("/sign-in");
   };
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      api
-        .getUserInfo()
-        .then((user) => {
-          setCurrentUser(user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, []);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
