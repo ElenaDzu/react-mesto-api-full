@@ -53,7 +53,7 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-  tokenCheck();
+  //tokenCheck();
 
   const onLogin = (data) => {
     return ApiAuth.authorize(data)
