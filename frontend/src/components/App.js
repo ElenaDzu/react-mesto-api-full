@@ -61,14 +61,6 @@ function App() {
         localStorage.setItem("jwt", token);
         tokenCheck();
         history.push("/");
-        api
-        .getUserInfo()
-        .then((user) => {
-          setCurrentUser(user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
         return;
       })
       .catch((e) => {
